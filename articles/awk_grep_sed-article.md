@@ -10,7 +10,7 @@ published: false
 
 Linux上のコマンド操作において、出力結果を抽出・整形する際に、以下コマンドを活用する機会は多いと思います。
 - grep
-- sed
+- sed test
 - awk
 - perl
 - nl / cut / column / tr （書ききれないですね…）
