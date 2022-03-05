@@ -73,6 +73,12 @@ awkの文法をきちんと学ぶのに必要な知識が一通り詰まって�
 ※Open Weather Map API[^3]を利用して取得したデータをスクリプトで加工したものです。
 [^3]: Open Weather Map API https://openweathermap.org/
 
+## 実行環境
+これも重要かと思います。awkは*GNU*実装のものになります。Macなどで検証をされる際は挙動がおかしくなる場合がありますので、ご注意ください。
+
+- bash / GNU bash, version 4.4.20(1)-release (x86_64-redhat-linux-gnu)
+- awk / GNU Awk 4.2.1, API: 2.0 (GNU MPFR 3.1.6-p2, GNU MP 6.1.2)
+
 
 # 実践例1. 重複排除
 awkの連想配列を上手く利用して、テキストの重複行の排除をすることが出来ます。
@@ -148,7 +154,7 @@ Linux
 
 `sort | uniq` と `sort -u`では後者の方が速度が速いですが、
 `sort | uniq`を用いると
-```bash
+```bash:実行コマンド
 # 登場回数の多い順にランキングを出力する
 cat oslist.txt | sort | uniq -c | sort -nr
 ```
