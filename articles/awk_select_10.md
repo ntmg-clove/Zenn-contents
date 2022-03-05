@@ -3,7 +3,7 @@ title: "awkの魅力を伝える: 「重複排除」「前行と比較しなが�
 emoji: "🕌"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["AWK", "Linuxコマンド"]
-published: false
+published: true
 ---
 
 # はじめに
@@ -79,7 +79,6 @@ awkの連想配列を上手く利用して、テキストの重複行の排除�
 以下のファイルに登場するOSの種類を列挙したいとします。
 
 ```txt:oslist.txt
-Windows
 Windows
 Mac
 Windows
@@ -180,8 +179,6 @@ cat openweatherdata.csv | awk -F, 'NR>1&&!a[$4]++{print $4}'
 ```
 最初の行はヘッダのため、無視します。(NR>1)
 あとは行全体版とほとんど一緒で、`$0`と行全体にしていたものを`$4`に変更しただけです。
-
-
 
 筆者はawkをある程度使えるようになるまでこのような処理を行う際は、`grep -o` でフィールドをうまく抽出して（または`sed -E`で後方参照を利用して置換するなど…）、そこから`sort -u`として結果を得ていました。
 awkだと非常にシンプルで無駄がなく、awk1つで完結します。
