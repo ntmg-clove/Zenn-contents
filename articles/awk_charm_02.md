@@ -134,7 +134,7 @@ cat openweatherdata.csv | awk -F, -v OFS=, 'NR==1{$9="増分"}NR==2{$9="---";tmp
 ここでは、このシリーズ初の`for文`が登場します。
 
 ```bash:5 実行コマンド
-cat openweatherdata.csv | awk -F, 'NR>1{cnt[$1]++;temp[$1]+=$5}END{for(i in cnt){print i,temp[i]/cnt[i]}}' | sort
+cat openweatherdata.csv | awk -F, 'NR>1{cnt[$1]++;sum[$1]+=$5}END{for(i in cnt){print i,sum[i]/cnt[i]}}' | sort
 ```
 ```txt:5 実行結果
 2022-03-05 12.3529
@@ -152,15 +152,15 @@ cat openweatherdata.csv | awk -F, 'NR>1{cnt[$1]++;temp[$1]+=$5}END{for(i in cnt)
 NR>1{
     # 平均を出すために個数が必要なのでcntに日付をキーとして+1する
     cnt[$1]++;
-    # 天気の情報を日付をキーとしてtempに加算。
-    temp[$1]+=$5
+    # 天気の情報を日付をキーとしてsumに加算。
+    sum[$1]+=$5
 }
 
 # 出力はENDブロックでまとめて行う
 END{
     # 範囲for文で日付を取り出し、日付と 平均（=合計/個数） を出力する
     for(i in cnt){
-        print i,temp[i]/cnt[i]
+        print i,sum[i]/cnt[i]
     }
 }
 ```
