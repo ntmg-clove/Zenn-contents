@@ -3,7 +3,7 @@ title: "AWKの魅力を伝える: 「合計・平均・階差などを取得」"
 emoji: "✨"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["AWK", "Linuxコマンド"]
-published: false
+published: true
 ---
 
 # はじめに
